@@ -14,7 +14,6 @@ class Widget extends Component {
     }
   }
   componentDidMount() {
-    console.log(this.props);
     this.props.dispatch(loadChatList(this.props.messageList));
   }
 

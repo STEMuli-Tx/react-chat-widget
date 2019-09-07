@@ -6,15 +6,7 @@ import openLauncher from "@assets/launcher_button.svg";
 import close from "@assets/clear-button.svg";
 import Badge from "./components/Badge";
 import "./style.scss";
-function Avatar(props) {
-  return (
-    <img
-      style={{ height: 60, width: 60, borderRadius: "50%" }}
-      src={props.profileAvatar}
-      className="rcw-open-launcher"
-    />
-  );
-}
+
 const Launcher = ({ toggle, profileAvatar, chatOpened, badge }) => (
   <button
     type="button"
@@ -25,7 +17,10 @@ const Launcher = ({ toggle, profileAvatar, chatOpened, badge }) => (
     {chatOpened ? (
       <img src={close} className="rcw-close-launcher" alt="" />
     ) : (
-      <Avatar profileAvatar={profileAvatar} />
+      <img
+        src={profileAvatar}
+        style={{ height: 60, width: 60, borderRadius: "50%" }}
+      />
     )}
   </button>
 );

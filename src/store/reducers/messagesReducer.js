@@ -20,7 +20,6 @@ const messagesReducer = {
     state.push(createNewMessage(text, MESSAGE_SENDER.RESPONSE)),
 
   [actionTypes.LOAD_CHAT_LIST]: (state, { list }) => {
-    console.log(list);
     state = list;
     return state;
   },
