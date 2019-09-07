@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { List, Map } from "immutable";
+import Message from "@messagesComponents/Message";
+import { toggleChat, addUserMessage, loadChatList } from "@actions";
 
-import { toggleChat, addUserMessage } from '@actions';
-
-import WidgetLayout from './layout';
+import WidgetLayout from "./layout";
 
 class Widget extends Component {
   componentWillReceiveProps(nextProps) {
@@ -12,28 +13,32 @@ class Widget extends Component {
       this.props.dispatch(toggleChat());
     }
   }
+  componentDidMount() {
+    console.log(this.props);
+    this.props.dispatch(loadChatList(this.props.messageList));
+  }
 
   toggleConversation = () => {
     this.props.dispatch(toggleChat());
-  }
+  };
 
-  handleMessageSubmit = (event) => {
+  handleMessageSubmit = event => {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput.trim()) {
       this.props.dispatch(addUserMessage(userInput));
       this.props.handleNewUserMessage(userInput);
     }
-    event.target.message.value = '';
-  }
+    event.target.message.value = "";
+  };
 
   handleQuickButtonClicked = (event, value) => {
     event.preventDefault();
 
-    if(this.props.handleQuickButtonClicked) {
+    if (this.props.handleQuickButtonClicked) {
       this.props.handleQuickButtonClicked(value);
     }
-  }
+  };
 
   render() {
     return (
@@ -57,6 +62,7 @@ class Widget extends Component {
 }
 
 Widget.propTypes = {
+  messageList: PropTypes.object,
   title: PropTypes.string,
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,
