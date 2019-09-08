@@ -14,6 +14,7 @@ class Widget extends Component {
     }
   }
   componentDidMount() {
+    console.log(this.props.messageList);
     this.props.dispatch(loadChatList(this.props.messageList));
   }
 
@@ -61,7 +62,7 @@ class Widget extends Component {
 }
 
 Widget.propTypes = {
-  messageList: PropTypes.object,
+  messageList: PropTypes.array,
   title: PropTypes.string,
   titleAvatar: PropTypes.string,
   subtitle: PropTypes.string,

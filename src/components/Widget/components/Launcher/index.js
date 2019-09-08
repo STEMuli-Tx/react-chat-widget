@@ -19,6 +19,7 @@ const Launcher = ({ toggle, profileAvatar, chatOpened, badge }) => (
     ) : (
       <img
         src={profileAvatar}
+        className="rcw-open-launcher"
         style={{ height: 60, width: 60, borderRadius: "50%" }}
       />
     )}

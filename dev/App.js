@@ -36,22 +36,20 @@ export default class App extends Component {
   };
 
   render() {
-    const messageList = List([
-      Map({
-        component: Message,
+    const messageList = [
+      {
         type: "text",
         text: "What?!?!?",
         sender: "response",
         showAvatar: true
-      }),
-      Map({
-        component: Message,
+      },
+      {
         type: "text",
-        text: "What?!?!?",
+        text: "hello hello",
         sender: "response",
         showAvatar: true
-      })
-    ]);
+      }
+    ];
 
     return (
       <Widget

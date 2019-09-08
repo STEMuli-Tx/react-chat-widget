@@ -1,6 +1,6 @@
 {
   "name": "stemuli-chat-window",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Chat web widget for React apps",
   "main": "lib/index.js",
   "repository": {
@@ -34,6 +34,7 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
     "autoprefixer": "^8.2.0",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.2",

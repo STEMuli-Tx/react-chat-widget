@@ -1,5 +1,3 @@
-import { List } from "immutable";
-
 import { createReducer } from "@utils/store";
 import {
   createNewMessage,
@@ -7,7 +5,8 @@ import {
   createComponentMessage
 } from "@utils/messages";
 import { MESSAGE_SENDER } from "@constants";
-
+import { List, Map } from "immutable";
+import Message from "@messagesComponents/Message";
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = List([]);
@@ -20,7 +19,18 @@ const messagesReducer = {
     state.push(createNewMessage(text, MESSAGE_SENDER.RESPONSE)),
 
   [actionTypes.LOAD_CHAT_LIST]: (state, { list }) => {
-    state = list;
+    state = List(
+      list.map(item => {
+        return Map({
+          type: item.type,
+          text: item.text,
+          sender: item.sender,
+          showAvatar: item.showAvatar,
+          component: Message
+        });
+      })
+    );
+
     return state;
   },
 
