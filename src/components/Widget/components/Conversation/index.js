@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Header from './components/Header';
-import Messages from './components/Messages';
-import Sender from './components/Sender';
-import QuickButtons from './components/QuickButtons';
-import './style.scss';
+import Header from "./components/Header";
+import Messages from "./components/Messages";
+import Sender from "./components/Sender";
+import QuickButtons from "./components/QuickButtons";
+import "./style.scss";
 
-const Conversation = props =>
+const Conversation = props => (
   <div className="rcw-conversation-container">
     <Header
       title={props.title}
@@ -16,9 +16,7 @@ const Conversation = props =>
       showCloseButton={props.showCloseButton}
       titleAvatar={props.titleAvatar}
     />
-    <Messages
-      profileAvatar={props.profileAvatar}
-    />
+    <Messages profileAvatar={props.profileAvatar} />
     <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
     <Sender
       sendMessage={props.sendMessage}
@@ -26,7 +24,8 @@ const Conversation = props =>
       disabledInput={props.disabledInput}
       autofocus={props.autofocus}
     />
-  </div>;
+  </div>
+);
 
 Conversation.propTypes = {
   title: PropTypes.string,

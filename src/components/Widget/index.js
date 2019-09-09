@@ -14,8 +14,12 @@ class Widget extends Component {
     }
   }
   componentDidMount() {
-    console.log(this.props.messageList);
     this.props.dispatch(loadChatList(this.props.messageList));
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.messageList.length !== this.props.messageList.length) {
+      this.props.dispatch(loadChatList(this.props.messageList));
+    }
   }
 
   toggleConversation = () => {
@@ -34,7 +38,6 @@ class Widget extends Component {
 
   handleQuickButtonClicked = (event, value) => {
     event.preventDefault();
-
     if (this.props.handleQuickButtonClicked) {
       this.props.handleQuickButtonClicked(value);
     }

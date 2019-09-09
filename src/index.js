@@ -18,6 +18,7 @@ const ConnectedWidget = props => (
       showCloseButton={props.showCloseButton}
       fullScreenMode={props.fullScreenMode}
       badge={props.badge}
+      new_message={props.new_message}
       messageList={props.messageList}
       autofocus={props.autofocus}
       customLauncher={props.launcher}

@@ -9,6 +9,8 @@ import { List, Map } from "immutable";
 import Message from "@messagesComponents/Message";
 import CustomLauncher from "../src/components/Widget";
 export default class App extends Component {
+  state = { messageList: [] };
+
   componentDidMount() {
     addResponseMessage("Welcome to this awesome chat!");
   }
@@ -36,25 +38,10 @@ export default class App extends Component {
   };
 
   render() {
-    const messageList = [
-      {
-        type: "text",
-        text: "What?!?!?",
-        sender: "response",
-        showAvatar: true
-      },
-      {
-        type: "text",
-        text: "hello hello",
-        sender: "response",
-        showAvatar: true
-      }
-    ];
-
     return (
       <Widget
         title="Bienvenido?!?!?!"
-        messageList={messageList}
+        messageList={this.state.messageList}
         subtitle="Asistente virtual"
         senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}

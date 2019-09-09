@@ -15,6 +15,7 @@ const WidgetLayout = props => (
     {props.showChat && (
       <Conversation
         title={props.title}
+        messageList={props.messageList}
         subtitle={props.subtitle}
         sendMessage={props.onSendMessage}
         senderPlaceHolder={props.senderPlaceHolder}
