@@ -38,15 +38,33 @@ export default class App extends Component {
   };
 
   render() {
+    setInterval(() => {
+      this.setState({
+        messageList: [
+          {
+            type: "text",
+            text: "What?!?!?",
+            sender: "response",
+            showAvatar: true
+          },
+          {
+            type: "text",
+            text: "hello hello",
+            sender: "response",
+            showAvatar: true
+          }
+        ]
+      });
+    }, 5000);
     return (
       <Widget
         title="Bienvenido?!?!?!"
         messageList={this.state.messageList}
         subtitle="Asistente virtual"
-        senderPlaceHolder="Escribe aquí ..."
+        // senderPlaceHolder="Escribe aquí ..."
         handleNewUserMessage={this.handleNewUserMessage}
-        handleQuickButtonClicked={this.handleQuickButtonClicked}
-        badge={2}
+        // handleQuickButtonClicked={this.handleQuickButtonClicked}
+        // badge={2}
         profileAvatar="https://stemuli.blob.core.windows.net/stemuli/SeagovillePhotos/staff/sibu.jpeg"
       />
     );

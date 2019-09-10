@@ -19,16 +19,18 @@ const messagesReducer = {
     state.push(createNewMessage(text, MESSAGE_SENDER.RESPONSE)),
 
   [actionTypes.LOAD_CHAT_LIST]: (state, { list }) => {
-    state = List(
-      list.map(item => {
-        return Map({
-          type: item.type,
-          text: item.text,
-          sender: item.sender,
-          showAvatar: item.showAvatar,
-          component: Message
-        });
-      })
+    state = state.concat(
+      List(
+        list.map(item => {
+          return Map({
+            type: item.type,
+            text: item.text,
+            sender: item.sender,
+            showAvatar: item.showAvatar,
+            component: Message
+          });
+        })
+      )
     );
 
     return state;
