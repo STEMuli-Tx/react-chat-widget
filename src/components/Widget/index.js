@@ -6,6 +6,8 @@ import Message from "@messagesComponents/Message";
 import { toggleChat, addUserMessage, loadChatList } from "@actions";
 
 import WidgetLayout from "./layout";
+import { throws } from "assert";
+import { dropMessages } from "../../store/actions";
 
 class Widget extends Component {
   componentWillReceiveProps(nextProps) {
@@ -18,6 +20,10 @@ class Widget extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.messageList.length !== this.props.messageList.length) {
+      this.props.dispatch(loadChatList(this.props.messageList));
+    }
+    if (prevProps.id !== this.props.id) {
+      this.props.dispatch(dropMessages());
       this.props.dispatch(loadChatList(this.props.messageList));
     }
   }

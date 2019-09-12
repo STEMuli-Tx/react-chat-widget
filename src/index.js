@@ -8,6 +8,7 @@ import store from "../src/store/store";
 const ConnectedWidget = props => (
   <Provider store={store}>
     <Widget
+      id={props.id} //Used to drop messages
       title={props.title}
       titleAvatar={props.titleAvatar}
       subtitle={props.subtitle}

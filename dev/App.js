@@ -9,7 +9,7 @@ import { List, Map } from "immutable";
 import Message from "@messagesComponents/Message";
 import CustomLauncher from "../src/components/Widget";
 export default class App extends Component {
-  state = { messageList: [] };
+  state = { messageList: [], id: "1" };
 
   componentDidMount() {
     addResponseMessage("Welcome to this awesome chat!");
@@ -56,8 +56,22 @@ export default class App extends Component {
         ]
       });
     }, 5000);
+    setInterval(() => {
+      this.setState({
+        id: "2",
+        messageList: [
+          {
+            type: "text",
+            text: "NANI?!?!?",
+            sender: "response",
+            showAvatar: true
+          }
+        ]
+      });
+    }, 10000);
     return (
       <Widget
+        id={this.state.id}
         title="Bienvenido?!?!?!"
         messageList={this.state.messageList}
         subtitle="Asistente virtual"
